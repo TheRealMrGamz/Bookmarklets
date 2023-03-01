@@ -1,2 +1,2 @@
 # Bookmarklets
-A Bunch Of Amazing Bookmarklets That Work With Foriguard!
+A Bunch Of Bookmarklets That Work With Foriguard!
