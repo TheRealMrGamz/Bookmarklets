@@ -1,2 +1,2 @@
 # Bookmarklets
-A Bunch Of Cool Bookmarklets That I Have Found Or Made!
+A Bunch Of Amazing Bookmarklets That Work With Foriguard!
