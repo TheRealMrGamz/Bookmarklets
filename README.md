@@ -32,6 +32,13 @@ Like Google Drive.
 
 ```javascript:function gcloak() { var link = document.querySelector("link[rel*='icon']") || document.createElement('link');link.type = 'image/x-icon';link.rel = 'shortcut icon';link.href = 'https://www.pngall.com/wp-content/uploads/9/Google-Drive-Logo-Transparent-180x180.png';document.title = 'My Drive - Google Drive';console.log(document.title);document.getElementsByTagName('head')[0].appendChild(link) };gcloak();setInterval(gcloak, 1000);```
 
+### Edpuzzle Video Skipper
+---
+This Bookmarklet Allows You To Skip Edpuzzle
+Videos
+
+```javascript:(function() { function httpGet(url, callback, headers = [], method = "GET", content = null) { const request = new XMLHttpRequest(); request.addEventListener("load", callback); request.open(method, url, true); headers.forEach((header) => request.setRequestHeader(header[0], header[1])); request.send(content); } function getAssignment() { const assignmentId = window.location.pathname.split("/")[2]; const url = `https://edpuzzle.com/api/v4/assignments/${assignmentId}/play`; const headers = [ ["accept", "application/json, text/plain, */*"], ["accept_language", "en-US,en;q=0.9"], ["content-type", "application/json"], ["referer", window.location.href], ]; httpGet(url, function() { const data = JSON.parse(this.responseText); const attemptId = data.mediaAttempt._id; postAttempt(attemptId); }, headers); } function postAttempt(attemptId) { const url = `https://edpuzzle.com/api/v4/media_attempts/${attemptId}/watch`; const content = { "timeIntervalNumber": 10 }; const headers = [ ["accept", "application/json, text/plain, */*"], ["accept_language", "en-US,en;q=0.9"], ["content-type", "application/json"], ["referer", window.location.href], ]; httpGet(url, function() { window.location.reload(); }, headers, "POST", JSON.stringify(content)); } getAssignment(); })();```
+
 ## Fun Stuff
 
 ### AutoClicker
@@ -48,11 +55,54 @@ Use At Your Own Risk!
 
 ```javascript:alert("Are You Sure?");alert("Use At Your Own Risk");alert("Ready? IF NO RELOAD NOW.");setTimeout(() => {while (true) {while(1)location.reload(1)}}, 1000);```
 
-### High Pitch Sound Hidery
+### High Pitch Sound Hider
 ---
 Plays The High Pitch Noise, And You Can Hide The Window.
 
 ```javascript:alert("High Pitched Noise! Press H to Hide!");var s = "https://www.youtube.com/embed/MMNa8yqUEbE";((function(){var a,b,c;c=s,b=document.createElement("iframe"),b.setAttribute("src",c),b.setAttribute("id","rusic-modal"),b.setAttribute("style","position: fixed; z-index: 999999; width: 400px; height: 270px; left: 10px; top: 10px; border: 5px solid #009933; overflow: hidden; background-color: #fff;"),a=document.getElementsByTagName("body")[0],a.appendChild(b); window.addEventListener('keydown', function(event) { if (event.key == 'h') { b.setAttribute("style","left:-100000px;"); } }); })).call(this); ```
+
+### Metal Pipe
+---
+Changes All Images To Metal Pipe And Plays The 
+Falling Metal Pipe Sound Effect.
+
+```javascript:(function(){var audio=new Audio('https://www.myinstants.com/media/sounds/jixaw-metal-pipe-falling-sound.mp3');audio.play();var imgs=document.getElementsByTagName('img');for(var i=0;i<imgs.length;i++){imgs[i].src='https://i.kym-cdn.com/entries/icons/original/000/043/027/metalpipefalling.jpg';}})();```
+
+### Corrupt Series
+---
+A Few Different Bookmarklets That Make Your Chromebook
+KindOf Look Like It Has A Virus, Or A Least The Website
+
+Corrupt Text
+```javascript:(function(){var s = document.createElement('style');s.innerHTML = 'body {background-color: black; color: green; font-family: Courier New; font-size: 200%; text-shadow: 2px 2px #FF0000;} * {background-color: black !important; color: green !important; font-family: Courier New !important; text-shadow: 2px 2px #FF0000 !important;}';document.body.appendChild(s);})();```
+
+CorruptV2
+```javascript:(function(){    var css = document.createElement("style");    css.type = "text/css";    css.innerHTML = "body { font-family: 'Comic Sans MS', 'Marker Felt', fantasy; color: #ff0000; }";    document.head.appendChild(css);    var message = document.createElement("div");    message.style.position = "fixed";    message.style.top = "0";    message.style.left = "0";    message.style.right = "0";    message.style.bottom = "0";    message.style.background = "black";    message.style.color = "white";    message.style.fontSize = "60px";    message.style.fontFamily = "Impact";    message.style.textAlign = "center";    message.style.paddingTop = "200px";    message.innerHTML = "Error: Page has been corrupted";    document.body.appendChild(message);    var images = document.getElementsByTagName("img");    for (var i = 0; i < images.length; i++) {        images[i].style.animation = "imageShift 2s infinite";        images[i].style.animationTimingFunction = "ease-in-out";    }    var elements = document.querySelectorAll("*");    for (var i = 0; i < elements.length; i++) {        if (elements[i].tagName != "IMG") {            elements[i].style.animation = "spinAndBounce 1s infinite";            elements[i].style.animationTimingFunction = "ease-in-out";        }    }    var keyframes = "\        @keyframes imageShift {\            0% { transform: translateX(0px); }\            50% { transform: translateX(20px); }\            100% { transform: translateX(0px); }\        }\        @keyframes spinAndBounce {\            0% { transform: rotate(0deg) scale(1); }\            50% { transform: rotate(180deg) scale(1.2); }\            100% { transform: rotate(360deg) scale(1); }\        }\    ";    var style = document.createElement("style");    style.type = "text/css";    style.innerHTML = keyframes;    document.head.appendChild(style);})();```
+
+### Gravity
+---
+Makes The Website Simulate Gravity 
+
+```javascript:(function(){ var elements = document.querySelectorAll("*"); var initialPositions = []; for (var i = 0; i < elements.length; i++) { var rect = elements[i].getBoundingClientRect(); initialPositions.push({ x: rect.x, y: rect.y }); } var gravity = 0.1; // adjust this value to change gravity strength function fall() { for (var i = 0; i < elements.length; i++) { var rect = elements[i].getBoundingClientRect(); elements[i].style.top = rect.y + gravity + "px"; } } var timer = setInterval(function() { fall(); var screenBottom = window.innerHeight; for (var i = 0; i < elements.length; i++) { var rect = elements[i].getBoundingClientRect(); if (rect.bottom >= screenBottom) { elements[i].style.top = initialPositions[i].y + "px"; } } }, 30); // adjust this value to change the animation speed })();```
+
+### Fake Update
+---
+Creates A Fake Chrome Update Screen
+
+```javascript:(function() { var overlay = document.createElement("div"); overlay.style.position = "fixed"; overlay.style.top = "0"; overlay.style.left = "0"; overlay.style.width = "100%"; overlay.style.height = "100%"; overlay.style.background = "#FFFFFF"; overlay.style.opacity = "0.95"; overlay.style.zIndex = "9999999"; var dialog = document.createElement("div"); dialog.style.position = "absolute"; dialog.style.top = "50%"; dialog.style.left = "50%"; dialog.style.transform = "translate(-50%, -50%)"; dialog.style.width = "450px"; dialog.style.padding = "20px"; dialog.style.background = "#FFFFFF"; dialog.style.border = "1px solid #333333"; dialog.style.borderRadius = "5px"; dialog.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)"; dialog.style.zIndex = "99999999"; var title = document.createElement("h1"); title.innerHTML = "Google Chrome Update"; title.style.marginTop = "0"; title.style.textAlign = "center"; dialog.appendChild(title); var message = document.createElement("p"); message.innerHTML = "Your version of Google Chrome is outdated. Please click the button below to update now."; message.style.margin = "20px 0"; message.style.textAlign = "center"; dialog.appendChild(message); var button = document.createElement("button"); button.innerHTML = "Update Now"; button.style.background = "#0078D7"; button.style.border = "none"; button.style.color = "#FFFFFF"; button.style.padding = "10px 20px"; button.style.borderRadius = "5px"; button.style.cursor = "pointer"; button.addEventListener("click", function() { window.location.href = "https://google.com/chrome"; }); dialog.appendChild(button); overlay.appendChild(dialog); document.body.appendChild(overlay); })();```
+
+### Fake Error
+---
+Creates A Fake Error With Some Very Suspicious Music
+
+```javascript:(function(){ var errorMessages = [ "Error: Server not found", "Error: Connection lost", "Error: Page not found", "Error: Invalid input", "Error: System overload" ]; var randomError = errorMessages[Math.floor(Math.random() * errorMessages.length)]; alert(randomError); document.body.style.backgroundColor = "magenta"; document.body.style.color = "yellow"; var audio = new Audio('https://www.myinstants.com/media/sounds/untitled_hG6mBU5.mp3'); audio.play(); })();```
+
+### Link Changer
+---
+Changes Links On Websites To Random Websites
+I Only Have 3 So Far
+
+```(function(){ var links = document.getElementsByTagName('a'); for (var i = 0; i < links.length; i++) { var websites = ['https://longdogechallenge.com/', 'https://puginarug.com/', 'https://onesquareminesweeper.com/']; var randomWebsite = websites[Math.floor(Math.random() * websites.length)]; links[i].href = randomWebsite; } })();```
 
 ### Infinite Tab Opener
 ---
