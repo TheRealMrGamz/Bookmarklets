@@ -102,7 +102,7 @@ Creates A Fake Error With Some Very Suspicious Music
 Changes Links On Websites To Random Websites
 I Only Have 3 So Far
 
-```(function(){ var links = document.getElementsByTagName('a'); for (var i = 0; i < links.length; i++) { var websites = ['https://longdogechallenge.com/', 'https://puginarug.com/', 'https://onesquareminesweeper.com/']; var randomWebsite = websites[Math.floor(Math.random() * websites.length)]; links[i].href = randomWebsite; } })();```
+```javascript:(function(){ var links = document.getElementsByTagName('a'); for (var i = 0; i < links.length; i++) { var websites = ['https://longdogechallenge.com/', 'https://puginarug.com/', 'https://onesquareminesweeper.com/']; var randomWebsite = websites[Math.floor(Math.random() * websites.length)]; links[i].href = randomWebsite; } })();```
 
 ### Infinite Tab Opener
 ---
