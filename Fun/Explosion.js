@@ -1,5 +1,5 @@
 javascript:(function() {
-    var countdown = 3; // Countdown In Seconds
+    var countdown = 3;
     var gifUrl = "https://i.gifer.com/origin/a0/a07ad08920f303f655251b1a0b353b86_w200.gif";
   
     var countdownEl = document.createElement("div");
