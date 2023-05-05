@@ -1,4 +1,3 @@
-//Still Needs To Be Tested
 javascript:(function(){
     var x = 0, y = 0;
     var spreadInterval = setInterval(spread, 50);
